@@ -8,8 +8,10 @@ int main() {
     for(int i = 0; i < n; i++){
         cin >> arr[i];
     }
+
     int smallest = 0;
     int largest = 0;
+    
     for(int i = 0; i < n; i++){
         if(arr[i] > arr[largest]){
             largest = i;
@@ -18,15 +20,16 @@ int main() {
             smallest = i;
         }
     }
+
     if(smallest == n-1 && largest == 0){
-        cout << 0;
+        cout << 0 << "\n";
         return 0;
     }
     else{
         int ans = 0;
+        ans += largest;
+        ans += n-1-smallest;
         if(smallest > largest){
-            ans += largest;
-            ans += (n-1) - smallest;
             cout << ans << "\n";
         }
         else{
